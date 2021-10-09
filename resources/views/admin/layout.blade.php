@@ -61,7 +61,7 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li>
-                      <a> Home <span class="fa fa-chevron-down"></span></a>
+                      <a href="{{route('page-add')}}"> Home <span class="fa fa-chevron-down"></span></a>
                   </li>
                   <li>
                       <a> company <span class="fa fa-chevron-down"></span></a>
@@ -72,6 +72,7 @@
                   <li>
                       <a> contact <span class="fa fa-chevron-down"></span></a>
                   </li>
+
               </div>
 
             </div>
@@ -98,9 +99,7 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-
-        @yield('content')
-
+          @yield('content')
         </div>
         <!-- /page content -->
 
@@ -114,6 +113,20 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{asset('admin_theme/build/js/custom.min.js')}}"></script>
-	@stack('footer-scripts')
+    <script src="{{asset('admin_theme/vendors/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('admin_theme/vendors/ckeditor/js/sample.js')}}"></script>
+
+
+	@stack('footer-script')
+  <script>
+    $(function () {
+      if (('#editor').length) {
+        CKEDITOR.replace('editor', {});
+      }
+      $('.editor').each(function () {
+        CKEDITOR.replace($(this).attr('id'));
+      });
+    });
+  </script>
   </body>
 </html>

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Basecontroller;
+use App\Http\Controllers\Admincotroller;
+use App\Http\Controllers\Pagecontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +35,8 @@ Route::post('/admin', 'App\Http\Controllers\AdminController@makeLogin');
 
 Route::group(['middleware' => 'auth:admin'], function() {
     Route::get('/dashboard', 'App\Http\Controllers\AdminController@dashboard');
+    Route::get('/page-add', 'App\Http\Controllers\PageController@AddPage')->name('page-add');
+
+    Route::post('/page-create', 'App\Http\Controllers\PageController@CreatePage')->name('page-create');
+
 });
