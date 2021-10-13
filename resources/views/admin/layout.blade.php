@@ -64,15 +64,20 @@
                       <a href="{{route('page-add')}}"> Home <span class="fa fa-chevron-down"></span></a>
                   </li>
                   <li>
-                      <a> company <span class="fa fa-chevron-down"></span></a>
+                      <a> Company <span class="fa fa-chevron-down"></span></a>
                   </li>
                   <li>
-                      <a> services <span class="fa fa-chevron-down"></span></a>
+                      <a> Services <span class="fa fa-chevron-down"></span></a>
                   </li>
                   <li>
-                      <a> contact <span class="fa fa-chevron-down"></span></a>
+                      <a> Contact <span class="fa fa-chevron-down"></span></a>
                   </li>
-
+                  <!-- <li>
+                    <a href="{{route('post-add')}}"> Post <span class="fa fa-chevron-down"></span></a>
+                  </li> -->
+                  <li>
+                    <a href="{{route('post-show')}}"> Post <span class="fa fa-chevron-down"></span></a>
+                  </li>
               </div>
 
             </div>

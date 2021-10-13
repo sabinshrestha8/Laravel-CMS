@@ -39,4 +39,15 @@ Route::group(['middleware' => 'auth:admin'], function() {
 
     Route::post('/page-create', 'App\Http\Controllers\PageController@CreatePage')->name('page-create');
 
+    // post routes
+    Route::get('/post-add', 'App\Http\Controllers\PostController@create')->name('post-add');
+    Route::post('/post-add', 'App\Http\Controllers\PostController@store')->name('post-store');
+
+    Route::get('/post-show', 'App\Http\Controllers\PostController@show')->name('post-show');
+
+    // Route::get('/post-edit/{post_id?}', 'App\Http\Controllers\PostController@create')->name('post-edit');
+
+
+
+
 });

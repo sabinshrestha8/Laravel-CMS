@@ -47,7 +47,7 @@
                         {!! Form::text('second_title', $value->data, ['class' => 'form-control', 'required' => 'required']) !!}
                     @endif
                 @endforeach
-                <label class="hws_form_label">Image :</label>
+                <!-- <label class="hws_form_label">Image :</label>
                 {!! Form::file('second_image', ['class' => 'form-control', 'id' => 'file']) !!}
                 <label class="hws_form_label">Content :</label>
                 {!! Form::hidden('txt_name[]', 'second_text') !!}
@@ -55,9 +55,9 @@
                     @if($value->section_title == 'second_text')
                         {!! Form::textarea('second_text', $value->data, ['class' => 'editor', 'id' => 'editor1']) !!}
                     @endif
-                @endforeach
+                @endforeach -->
             </div>
-            <div class="form-group has-feedback" style="position: relative;">
+            <!-- <div class="form-group has-feedback" style="position: relative;">
                 <label class="hws_form_label">Third section :</label><br>
                 <label class="hws_form_label">Icon :</label>
                 {!! Form::hidden('txt_name[]', 'third_icon') !!}
@@ -76,7 +76,7 @@
                         {!! Form::textarea('third_text', $value->data, ['class' => 'editor', 'id' => 'editor2']) !!}
                     @endif
                 @endforeach
-            </div>
+            </div> -->
             <div class="form-group has-feedback" style="position: relative;">
                 <label class="hws_form_label">Fourth section :</label><br>
                 <label class="hws_form_label">Title :</label><br>
@@ -86,7 +86,7 @@
                         {!! Form::text('forth_icon', $value->data, ['class' => 'form-control']) !!}
                     @endif
                 @endforeach
-                <label class="hws_form_label">Image :</label>
+                <!-- <label class="hws_form_label">Image :</label>
                 {!! Form::hidden('txt_name[]', 'forth_image') !!}
                 {!! Form::text('forth_image', '', ['class' => 'form-control']) !!}
                 <label class="hws_form_label">Image title :</label>
@@ -95,7 +95,7 @@
                     @if($value->section_title == 'forth_text')
                         {!! Form::text('forth_text', $value->data, ['class' => 'form-control']) !!}
                     @endif
-                @endforeach
+                @endforeach -->
             </div>
             {{Form::submit('save', ['class' => 'btn btn-primary'])}}
         </div>
