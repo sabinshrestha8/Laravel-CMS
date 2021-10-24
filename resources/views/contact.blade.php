@@ -20,7 +20,8 @@
         <div class="row tm-welcome-row">
             <div class="col-lg-6 mb-5 tm-contact-box">
                 <div class="tm-contact-form-wrap">
-                    <form id="contact-form" action="" method="post" class="tm-contact-form">
+                    <form id="contact-form" action="{{route('contact.store')}}" method="post" class="tm-contact-form">
+                        @csrf
                         <div class="form-group">
                             <input type="text" id="contact_name" name="contact_name"
                                 class="form-control rounded-0 border-top-0 border-right-0 border-left-0"

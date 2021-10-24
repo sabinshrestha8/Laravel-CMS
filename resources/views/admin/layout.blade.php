@@ -76,6 +76,9 @@
                   <li>
                     <a href="{{route('post-show')}}"> Post <span class="fa fa-chevron-down"></span></a>
                   </li>
+                  <li>
+                    <a href="{{route('admin.contact.show')}}"> Users <span class="fa fa-chevron-down"></span></a>
+                  </li>
               </div>
 
             </div>

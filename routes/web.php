@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Basecontroller;
 use App\Http\Controllers\Admincotroller;
 use App\Http\Controllers\Pagecontroller;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ContactController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +31,8 @@ Route::get('/company', 'App\Http\Controllers\BaseController@company');
 
 Route::get('/contact', 'App\Http\Controllers\BaseController@contact');
 
+Route::post('/contact-add', 'App\Http\Controllers\ContactController@contact_store')->name('contact.store');
+
 
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('login');
 Route::post('/admin', 'App\Http\Controllers\AdminController@makeLogin');
@@ -50,5 +55,8 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::get('/post-edit/{post_id?}', 'App\Http\Controllers\PostController@create')->name('post-edit');
     Route::post('/post-add/{post_id?}', 'App\Http\Controllers\PostController@store')->name('post-store');
     Route::post('/post-delete', 'App\Http\Controllers\PostController@delete')->name('post-delete');
+
+    Route::get('/contact-show', 'App\Http\Controllers\ContactController@show')->name('admin.contact.show');
+
 
 });
