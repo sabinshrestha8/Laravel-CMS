@@ -21,7 +21,7 @@ class PostController extends Controller
     }
 
     public function show() {
-        $data['posts'] = Post::paginate(1);
+        $data['posts'] = Post::paginate(10);
         return view('admin.post.showpost', $data);
     }
 

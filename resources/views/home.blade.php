@@ -1,6 +1,17 @@
 @extends('master')
 
 @section('content')
+@if($home)
+    @foreach($home as $value)
+        @if($value->section_title == 'banner_image')
+        <style type="text/css">
+        .tm-main-bg { 
+            background-image: url({{ asset('/uploads') }}/{{$value->data}});
+         }
+        </style>
+        @endif
+    @endforeach
+@endif
 <div class="row">
     <div class="col-12">
         <div class="tm-main-bg"></div>
@@ -13,21 +24,36 @@
     <section class="tm-welcome">
         <div class="row">
             <div class="col-12">
-                <h2 class="tm-section-header tm-header-floating">Welcome to New Vision</h2>
+                <h2 class="tm-section-header tm-header-floating">
+                    @if($home)
+                    @foreach($home as $value)
+                        @if($value->section_title == 'second_title')
+                            {{$value->data}}
+                        @endif
+                    @endforeach
+                    @endif
+                </h2>
             </div>
         </div>
 
         <div class="row tm-welcome-row">
+            @if($post)
+            @foreach($post as $value)
+            @if($value->section_title == 'second_section')
             <article class="col-lg-6 tm-media">
-                <img src="{{asset('theme/img/img-3x2-01.jpg')}}" alt="Welcome image" class="img-fluid tm-media-img" />
+                <img src="{{asset('/uploads')}}/{{$value->image}}" alt="Welcome image" class="img-fluid tm-media-img" />
                 <div class="tm-media-body">
                     <a href="#" class="tm-article-link">
-                        <h3 class="tm-article-title text-uppercase">Best collection</h3>
+                        <h3 class="tm-article-title text-uppercase">{{$value->title}}</h3>
                     </a>
-                    <p>Aliquam purus arcu, congue a gravida ac, facilisis vel erat. Maecenas pretium sem.</p>
+                    <p>{!! $value->description !!}</p>
                 </div>
             </article>
-            <article class="col-lg-6 tm-media">
+            @endif
+            @endforeach
+            @endif
+
+            <!-- <article class="col-lg-6 tm-media">
                 <img src="{{asset('theme/img/img-3x2-02.jpg')}}" alt="Welcome image" class="img-fluid tm-media-img" />
                 <div class="tm-media-body">
                     <a href="#" class="tm-article-link">
@@ -37,6 +63,7 @@
                         malesuada, quis.</p>
                 </div>
             </article>
+
             <article class="col-lg-6 tm-media">
                 <img src="{{asset('theme/img/img-3x2-03.jpg')}}" alt="Welcome image" class="img-fluid tm-media-img" />
                 <div class="tm-media-body">
@@ -55,20 +82,27 @@
                     </a>
                     <p>Please tell your friends about TemplateMo website. Thank you. Title / Text #666</p>
                 </div>
-            </article>
+            </article> -->
         </div>
 
+        
         <div class="row tm-welcome-row-2">
+            @if($post)
+            @foreach($post as $value)
+            @if($value->section_title == 'third_section')
             <div class="col-lg-4 tm-dotted-box-container">
                 <article class="tm-dotted-box">
-                    <i class="fas fa-3x fa-binoculars tm-article-icon"></i>
-                    <h3 class="tm-article-title">Template Usage</h3>
-                    <p class="tm-article-text">You can feel free to edit and use New Vision template for your commercial
-                        websites. Title color is #333</p>
+                    <!-- <i class="fas fa-3x fa-binoculars tm-article-icon"></i> -->
+                    <img src="{{asset('/uploads')}}/{{$value->image}}" alt="Welcome image" class="img-fluid tm-media-img" style="width: 30%;"/>
+                    <h3 class="tm-article-title">{{$value->title}}</h3>
+                    <p class="tm-article-text">{!! $value->description !!}</p>
                     <a class="tm-btn tm-btn-rounded tm-article-link" href="#">More Details</a>
                 </article>
             </div>
-            <div class="col-lg-4 tm-dotted-box-container">
+            @endif
+            @endforeach
+            @endif
+            <!-- <div class="col-lg-4 tm-dotted-box-container">
                 <article class="tm-dotted-box">
                     <i class="fas fa-3x fa-microscope tm-article-icon"></i>
                     <h3 class="tm-article-title">New Vision</h3>
@@ -87,26 +121,43 @@
                     <a class="tm-btn tm-article-link" href="#">Read More...</a>
                 </article>
             </div>
-        </div>
+        </div> -->
     </section>
 
     <!-- Featured -->
     <section class="tm-featured">
         <div class="row">
             <div class="col-12">
-                <h2 class="tm-section-header tm-section-header-small">Featured Carousel Items</h2>
+                <h2 class="tm-section-header tm-section-header-small">
+                    @if($home)
+                    @foreach($home as $value)
+                        @if($value->section_title == 'forth_icon')
+                            {{$value->data}}
+                        @endif
+                    @endforeach
+                    @endif
+                </h2>
             </div>
         </div>
 
         <!-- Carousel -->
+
         <div class="grid tm-carousel">
+            @if($post)
+            @foreach($post as $value)
+            @if($value->section_title=='slider')
             <figure class="effect-honey">
-                <img src="{{asset('theme/img/gallery-item-01.jpg')}}" alt="Featured Item">
+                <img src="{{asset('/uploads')}}/{{$value->image}}" alt="Featured Item">
                 <figcaption>
-                    <h4><i><span>Best</span> HTML Template</i></h4>
+                    <h4><i>{!! $value->description !!}</i></h4>
                 </figcaption>
             </figure>
-            <figure class="effect-honey">
+            @endif
+            @endforeach
+            @endif
+
+
+            <!-- <figure class="effect-honey">
                 <img src="{{asset('theme/img/gallery-item-02.jpg')}}" alt="Featured Item">
                 <figcaption>
                     <h4><i><span>Top</span> CSS Theme</i></h4>
@@ -147,7 +198,7 @@
                 <figcaption>
                     <h4><i><span>Best</span> CSS Template</i></h4>
                 </figcaption>
-            </figure>
+            </figure> -->
         </div>
     </section>
 
